@@ -1,6 +1,11 @@
 package model;
 
-public class Game {
+import observable.Observable;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class Game extends Observable {
     Cell[][] board;
 
     public Game(int size) {
@@ -26,6 +31,8 @@ public class Game {
         //First all cells gets the number of livingNeighbors updated, and the the cells update() method is called
         updateNeighborsAllCells();
         updateAlive();
+        setChanged();
+        notifyObservers(board);
 
     }
 

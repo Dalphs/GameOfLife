@@ -13,9 +13,8 @@
             <Font name="Comic Sans MS" size="51.0" />
          </font>
       </Label>
-      <Slider fx:id="matrixSizeSlider" layoutX="74.0" layoutY="243.0" majorTickUnit="10.0" min="10.0" minorTickCount="9" prefHeight="39.0" prefWidth="452.0" showTickLabels="true" snapToTicks="true" />
+      <Slider fx:id="matrixSizeSlider" layoutX="74.0" layoutY="243.0" majorTickUnit="5.0" max="40.0" min="10.0" minorTickCount="7" prefHeight="39.0" prefWidth="452.0" showTickLabels="true" snapToTicks="true" />
       <Label layoutX="222.0" layoutY="207.0" text="Game width and height" />
-       <Button fx:id="startGame" layoutX="253.0" layoutY="295.0" mnemonicParsing="false" onAction="#startGame"
-               text="Start Game"/>
+       <Button fx:id="startGame" layoutX="253.0" layoutY="295.0" mnemonicParsing="false" onAction="#startGame" text="Start Game" />
    </children>
 </Pane>

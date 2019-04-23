@@ -22,6 +22,13 @@ public class Observable {
         hasChanged = false;
     }
 
+    public void notifyObservers(int x, int y){
+        for (Observer o: observers) {
+            o.update(x, y);
+        }
+        hasChanged = false;
+    }
+
     public void addObserver(Observer o){
         observers.add(o);
     }

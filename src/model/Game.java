@@ -94,6 +94,12 @@ public class Game extends Observable {
         }
     }
 
+    public void makeCellComeAlive(int x, int y){
+        board[x][y].alive = true;
+        setChanged();
+        notifyObservers(board);
+    }
+
     public Cell[][] getBoard() {
         return board;
     }

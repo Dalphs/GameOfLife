@@ -1,12 +1,15 @@
 package sample;
 
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import model.Cell;
+import observable.Observable;
 
 
-public class GameVisualiser {
+public class GameVisualiser extends Observable {
 
     public GameVisualiser() {
     }
@@ -33,6 +36,16 @@ public class GameVisualiser {
         Color strokeColor = alive ? Color.BLACK : Color.BLACK;
         cell.setFill(fillColor);
         cell.setStroke(strokeColor);
+
+        cell.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                int x = (int) event.getSceneX();
+                int y = (int) event.getSceneY();
+                setChanged();
+                notifyObservers(x, y);
+            }
+        });
 
         return cell;
     }

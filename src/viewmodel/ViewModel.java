@@ -33,4 +33,7 @@ public class ViewModel {
         return game.getBoard();
     }
 
+    public void makeCellComeAlive(int x, int y){
+        game.makeCellComeAlive(x, y);
+    }
 }

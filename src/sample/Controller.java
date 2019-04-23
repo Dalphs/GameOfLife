@@ -31,12 +31,16 @@ public class Controller {
     GridPane currentGeneration;
     Button startStopTimer;
     Timeline timeline;
+    int size;
 
     public void startGame(ActionEvent actionEvent) {
         mainPane.getChildren().clear();
-        viewModel = new ViewModel((int) matrixSizeSlider.getValue());
+        size = (int) matrixSizeSlider.getValue();
+        viewModel = new ViewModel(size);
         gameVisualiser = new GameVisualiser();
         defaultLayout();
+        CellObserver cellObserver = new CellObserver();
+        gameVisualiser.addObserver(cellObserver);
         ModelObserver modelObserver = new ModelObserver();
         viewModel.addObserToModel(modelObserver);
         timer();
@@ -88,6 +92,24 @@ public class Controller {
         @Override
         public void update(Cell[][] board) {
             updateGame(board);
+        }
+
+        @Override
+        public void update(int x, int y) {
+
+        }
+    }
+
+    public class CellObserver implements Observer{
+
+        @Override
+        public void update(Cell[][] board) {
+
+        }
+
+        @Override
+        public void update(int x, int y) {
+            viewModel.makeCellComeAlive( (int) (x / (currentGeneration.getWidth() / (double) size)), (int) (y / (currentGeneration.getHeight() / (double) size)));
         }
     }
 }

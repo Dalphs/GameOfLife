@@ -1,5 +1,6 @@
 package model;
 
+import javafx.application.Platform;
 import observable.Observable;
 
 import java.util.Timer;
@@ -31,11 +32,18 @@ public class Game extends Observable {
      * Updates the board from generation n to generation n + 1
      */
     public void updateBoard(){
-        //First all cells gets the number of livingNeighbors updated, and the the cells update() method is called
-        updateNeighborsAllCells();
-        updateAlive();
-        setChanged();
-        notifyObservers(board);
+        //Using the Platform.runLater to start a new thread which updates the board
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                //First all cells gets the number of livingNeighbors updated, and the the cells update() method is called
+                updateNeighborsAllCells();
+                updateAlive();
+                setChanged();
+                notifyObservers(board);
+            }
+        });
+
 
     }
 

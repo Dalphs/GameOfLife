@@ -1,5 +1,9 @@
 package model;
 
+/**
+ * This class is responsible for the game logic concerning wether a cell is alive or dead
+ * corresponding with the number of livingNeighbors which is set by the gameClass
+ */
 public class Cell {
     int livingNeighbors;
     boolean alive;

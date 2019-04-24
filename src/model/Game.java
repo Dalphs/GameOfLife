@@ -5,6 +5,9 @@ import observable.Observable;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * This class has some of the game logic and is responsible for holding and uppdating the board
+ */
 public class Game extends Observable {
     Cell[][] board;
 
@@ -94,6 +97,12 @@ public class Game extends Observable {
         }
     }
 
+    /**
+     * This method changes state of Cell[x][y] and notifies the view when changed.
+     * It is called from the viewModel when a square on the board has been pressed.
+     * @param x
+     * @param y
+     */
     public void makeCellComeAlive(int x, int y){
         board[x][y].alive = true;
         setChanged();

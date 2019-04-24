@@ -7,9 +7,11 @@ import observable.Observer;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * This class is responsible for creating an instance of the gameClass and communicate from view to model
+ */
 public class ViewModel {
     Game game;
-    boolean timerOn = true;
 
 
     public ViewModel(int size) {

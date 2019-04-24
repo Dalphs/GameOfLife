@@ -16,9 +16,11 @@ If you click on a dead cell it comes alive
 
 A timer will autmatically update the board every 0.4 second
 
-When the Game class updates the board iti uses its own thread
+When the Game class updates the board it uses its own thread
 
 I have used ArrayList for storing Observers, and could have used Maps to store and keep track of each individual cell
+
+The performance of the game would probably be something like O^2 due to the nested forloops
 
 In the video you can see an example of how the program works. 
 On the video the program is lagging but that is not the case when running the program. 
